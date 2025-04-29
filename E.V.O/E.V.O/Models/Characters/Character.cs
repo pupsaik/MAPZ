@@ -86,6 +86,19 @@ public class Character
     private readonly List<IState> _states = [ new AliveState() ];
     private readonly List<IState> _newStates = [];
 
+    public Character(string name, int maxHealth, int maxHunger, int maxThirst, int maxSanity)
+    {
+        Name = name;
+        MaxHealth = maxHealth;
+        CurrentHealth = maxHealth;
+        MaxHunger = maxHunger;
+        CurrentHunger = maxHunger;
+        MaxThirst = maxThirst;
+        CurrentThirst = maxThirst;
+        MaxSanity = maxSanity;
+        CurrentSanity = maxSanity;
+    }
+
     public void SkipToNextDay()
     {
         foreach (var state in _states)

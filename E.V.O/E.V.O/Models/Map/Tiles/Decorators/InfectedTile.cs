@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace E.V.O_.Models.Map.Tiles.Decorators
 {
@@ -21,5 +22,11 @@ namespace E.V.O_.Models.Map.Tiles.Decorators
 
         public List<DangerousEvent> DangerousEvents => _modifiedEvents;
         public override string Name => _inner.Name + "Infected";
+
+        public override Tile Clone(Point coordinates)
+        {
+            Tile clonnedInner = _inner.Clone(coordinates);
+            return new InfectedTile(clonnedInner);
+        }
     }
 }

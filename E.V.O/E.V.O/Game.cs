@@ -23,15 +23,14 @@ namespace E.V.O_
 
         private Game()
         {
-            CharacterBuilder characterBuilder = new();
 
             WorldMap = WorldMap.GetInstance(new NormalTilesFactory());
 
             Characters = [
-                characterBuilder.SetName("Rob").SetMaxHealth(90).SetMaxThirst(100).SetMaxHunger(100).SetMaxSanity(130).Build(),
-                characterBuilder.SetName("Beth").SetMaxHealth(100).SetMaxThirst(100).SetMaxHunger(110).SetMaxSanity(120).Build(),
-                characterBuilder.SetName("Adam").SetMaxHealth(120).SetMaxThirst(100).SetMaxHunger(120).SetMaxSanity(80).Build(),
-                characterBuilder.SetName("Stacy").SetMaxHealth(110).SetMaxThirst(100).SetMaxHunger(110).SetMaxSanity(90).Build(),
+                new Character("Rob", 90, 100, 100, 130),
+                new Character("Beth", 100, 100, 110, 120),
+                new Character("Adam", 120, 100, 120, 80),
+                new Character("Stacy", 110, 100, 110, 90),
             ];
 
             Buildings = new();
