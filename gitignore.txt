@@ -1,0 +1,4 @@
+E.V.O/.vs/
+E.V.O/E.V.O/bin/Debug/net8.0-windows/
+E.V.O/E.V.O/bin/Debug/
+E.V.O/E.V.O/obj/
