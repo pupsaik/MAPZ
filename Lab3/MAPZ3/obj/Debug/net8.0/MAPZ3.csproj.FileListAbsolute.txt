@@ -1,0 +1,14 @@
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\bin\Debug\net8.0\MAPZ3.exe
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\bin\Debug\net8.0\MAPZ3.deps.json
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\bin\Debug\net8.0\MAPZ3.runtimeconfig.json
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\bin\Debug\net8.0\MAPZ3.dll
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\bin\Debug\net8.0\MAPZ3.pdb
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\MAPZ3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\MAPZ3.AssemblyInfoInputs.cache
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\MAPZ3.AssemblyInfo.cs
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\MAPZ3.csproj.CoreCompileInputs.cache
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\MAPZ3.dll
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\refint\MAPZ3.dll
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\MAPZ3.pdb
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\MAPZ3.genruntimeconfig.cache
+C:\Users\stelm\source\repos\MAPZ3\MAPZ3\obj\Debug\net8.0\ref\MAPZ3.dll

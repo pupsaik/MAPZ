@@ -1,0 +1,28 @@
+﻿using E.V.O_.Models.Loot;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace E.V.O_.Models.Map.Tiles
+{
+    public class CampingSiteTile : Tile
+    {
+        public override string Name => "CampingSite";
+
+        public override TileType Type => TileType.CampingSite;
+
+        public TileLootTable TileLootTable { get; }
+
+        public List<DangerousEvent> DangerousEvents { get; }
+
+        public CampingSiteTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
+        {
+            TileLootTable = tileLootTable;
+            DangerousEvents = dangerousEvents;
+        }
+    }
+}

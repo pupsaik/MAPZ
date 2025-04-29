@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="E.V.O_.Views.BaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:E.V.O_.Views"
+             xmlns:ba="clr-namespace:E.V.O_.Views.BuildingAction"
+             xmlns:convs="clr-namespace:E.V.O_.UI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <convs:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+
+        <Canvas>
+            <Canvas.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Resources/Icons/BaseBackground.png"/>
+            </Canvas.Background>
+
+            <ItemsControl ItemsSource="{Binding BuildingDisplayVMs}">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Canvas.Left" Value="{Binding X}" />
+                        <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding ImagePath}"
+                                Width="{Binding Width}"
+                                Height="{Binding Height}"
+                                Cursor="Hand" Name="Image">
+
+                            <Image.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding BuildinActionCommand}"/>
+                            </Image.InputBindings>
+                        </Image>
+
+                        <DataTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Image" Property="Source" Value="{Binding ImagePathMouseOver}"/>
+                            </Trigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </Canvas>
+
+        <ba:BuildingActionView
+            Visibility="{Binding DataContext.SelectedBuilding.IsModalOpened, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=UserControl}}"
+            DataContext="{Binding MainVM.BuildingActionVM}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Panel.ZIndex="100"/>
+
+        <WrapPanel Margin="10">
+            <Button Style="{StaticResource MenuButton}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 0"/>
+            <Button Style="{StaticResource SleepButton}" Command="{Binding SkipToNextDayCommand}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 0 10 0"/>
+            <TextBlock FontSize="35">Day <Run Text="{Binding DayCounter}"/></TextBlock>
+        </WrapPanel>
+
+
+        <ItemsControl ItemsSource="{Binding BuildingResourceVMs}" VerticalAlignment="Center" Margin="10 0 0 0">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel Height="30">
+                        <Image Source="{Binding ImageSource}" Width="30" Margin="0 0 10 0"/>
+                        <TextBlock Text="{Binding Quantity}" FontSize="20" Margin="0 0 0 0"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+        <local:CharacterPanel Grid.Row="1" DataContext="{Binding CharacterPanelVM}"/>
+    </Grid>
+</UserControl>

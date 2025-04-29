@@ -1,0 +1,30 @@
+﻿<Window x:Class="E.V.O_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:E.V.O_"
+        xmlns:views="clr-namespace:E.V.O_.Views"
+        xmlns:inv="clr-namespace:E.V.O_.Views.Inventory"
+        xmlns:vms="clr-namespace:E.V.O_.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowState="Maximized">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vms:MapVM}">
+            <views:MapView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vms:BaseVM}">
+            <views:BaseView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vms:InventoryVM}">
+            <inv:InventoryView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <ContentControl Content="{Binding CurrentVM}"/>
+    </Grid>
+</Window>

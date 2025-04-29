@@ -1,0 +1,208 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>E.V.O_</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\Icons\Items\Consumables\**" />
+    <Compile Remove="Resources\Icons\Items\Tools\**" />
+    <EmbeddedResource Remove="Resources\Icons\Items\Consumables\**" />
+    <EmbeddedResource Remove="Resources\Icons\Items\Tools\**" />
+    <None Remove="Resources\Icons\Items\Consumables\**" />
+    <None Remove="Resources\Icons\Items\Tools\**" />
+    <Page Remove="Resources\Icons\Items\Consumables\**" />
+    <Page Remove="Resources\Icons\Items\Tools\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Minecraftia-Regular.ttf" />
+    <None Remove="Resources\Icons\ActionButton.png" />
+    <None Remove="Resources\Icons\ActionButtonMouseOver.png" />
+    <None Remove="Resources\Icons\Axe.png" />
+    <None Remove="Resources\Icons\BackArrow.png" />
+    <None Remove="Resources\Icons\Backpack.png" />
+    <None Remove="Resources\Icons\Bandage.png" />
+    <None Remove="Resources\Icons\BaseBackground.png" />
+    <None Remove="Resources\Icons\basehex.png" />
+    <None Remove="Resources\Icons\basehex_equal.png" />
+    <None Remove="Resources\Icons\Berries.png" />
+    <None Remove="Resources\Icons\Beth.png" />
+    <None Remove="Resources\Icons\BottomBar.png" />
+    <None Remove="Resources\Icons\BottomBarCharacterBackground.png" />
+    <None Remove="Resources\Icons\BottomBarCharacterBackgroundMouseOver.png" />
+    <None Remove="Resources\Icons\BuildingActionTextBlockBackground.png" />
+    <None Remove="Resources\Icons\CampingSiteInfected.png" />
+    <None Remove="Resources\Icons\CampingSite_foggy.png" />
+    <None Remove="Resources\Icons\campsitehex.png" />
+    <None Remove="Resources\Icons\CampsiteInfected.png" />
+    <None Remove="Resources\Icons\CannedMeat.png" />
+    <None Remove="Resources\Icons\Carrot.png" />
+    <None Remove="Resources\Icons\Character1.png" />
+    <None Remove="Resources\Icons\Character2.png" />
+    <None Remove="Resources\Icons\CharacterPlaceholder.png" />
+    <None Remove="Resources\Icons\CharacterSelectBackground.png" />
+    <None Remove="Resources\Icons\CharacterSelectEmpty.png" />
+    <None Remove="Resources\Icons\CharacterSelectEmptyMouseOver.png" />
+    <None Remove="Resources\Icons\CharacterSelectVerticalPanel.png" />
+    <None Remove="Resources\Icons\CloseIcon.png" />
+    <None Remove="Resources\Icons\DeathIndicator.png" />
+    <None Remove="Resources\Icons\Fish.png" />
+    <None Remove="Resources\Icons\FishingDock.png" />
+    <None Remove="Resources\Icons\FishingDock_foggy.png" />
+    <None Remove="Resources\Icons\foggycampsitehex.png" />
+    <None Remove="Resources\Icons\foggyhex.png" />
+    <None Remove="Resources\Icons\FoggyTile.png" />
+    <None Remove="Resources\Icons\Forest.png" />
+    <None Remove="Resources\Icons\Forest_foggy.png" />
+    <None Remove="Resources\Icons\FreshWater.png" />
+    <None Remove="Resources\Icons\FullHealthBar.png" />
+    <None Remove="Resources\Icons\FullHungerBar.png" />
+    <None Remove="Resources\Icons\FullSanityBar.png" />
+    <None Remove="Resources\Icons\FullThirstBar.png" />
+    <None Remove="Resources\Icons\HealthIcon.png" />
+    <None Remove="Resources\Icons\HungerIcon.png" />
+    <None Remove="Resources\Icons\InventoryBackground.png" />
+    <None Remove="Resources\Icons\InventoryItemMouseOver.png" />
+    <None Remove="Resources\Icons\ItemSelectPlus.png" />
+    <None Remove="Resources\Icons\Items\Axe.png" />
+    <None Remove="Resources\Icons\Items\Bandage.png" />
+    <None Remove="Resources\Icons\Items\Berries.png" />
+    <None Remove="Resources\Icons\Items\Book.png" />
+    <None Remove="Resources\Icons\Items\CannedMeat.png" />
+    <None Remove="Resources\Icons\Items\Carrot.png" />
+    <None Remove="Resources\Icons\Items\FirstAidManual.png" />
+    <None Remove="Resources\Icons\Items\Fish.png" />
+    <None Remove="Resources\Icons\Items\FishingRod.png" />
+    <None Remove="Resources\Icons\Items\Flashlight.png" />
+    <None Remove="Resources\Icons\Items\FreshWater.png" />
+    <None Remove="Resources\Icons\Items\Health.png" />
+    <None Remove="Resources\Icons\Items\Hunger.png" />
+    <None Remove="Resources\Icons\Items\Machete.png" />
+    <None Remove="Resources\Icons\Items\Mushrooms.png" />
+    <None Remove="Resources\Icons\Items\Sanity.png" />
+    <None Remove="Resources\Icons\Items\StaleWater.png" />
+    <None Remove="Resources\Icons\Items\Suncreen.png" />
+    <None Remove="Resources\Icons\Items\Thirst.png" />
+    <None Remove="Resources\Icons\Machete.png" />
+    <None Remove="Resources\Icons\MapBackground.png" />
+    <None Remove="Resources\Icons\MapIcon.png" />
+    <None Remove="Resources\Icons\MenuButton.png" />
+    <None Remove="Resources\Icons\MenuButtonMouseOver.png" />
+    <None Remove="Resources\Icons\Metal.png" />
+    <None Remove="Resources\Icons\Mushrooms.png" />
+    <None Remove="Resources\Icons\None.png" />
+    <None Remove="Resources\Icons\Rest.png" />
+    <None Remove="Resources\Icons\Rob.png" />
+    <None Remove="Resources\Icons\Rope.png" />
+    <None Remove="Resources\Icons\SanityIcon.png" />
+    <None Remove="Resources\Icons\SleepButton.png" />
+    <None Remove="Resources\Icons\SleepButtonMouseOver.png" />
+    <None Remove="Resources\Icons\SleepingBag1.png" />
+    <None Remove="Resources\Icons\SleepingBag1MouseOver.png" />
+    <None Remove="Resources\Icons\SleepingBag2.png" />
+    <None Remove="Resources\Icons\SleepingBag2MouseOver.png" />
+    <None Remove="Resources\Icons\Stacy.png" />
+    <None Remove="Resources\Icons\StaleWater.png" />
+    <None Remove="Resources\Icons\Stone.png" />
+    <None Remove="Resources\Icons\Tent1.png" />
+    <None Remove="Resources\Icons\Tent1MouseOver.png" />
+    <None Remove="Resources\Icons\ThirstIcon.png" />
+    <None Remove="Resources\Icons\Trailer.png" />
+    <None Remove="Resources\Icons\Trailer1.png" />
+    <None Remove="Resources\Icons\Trailer1MouseOver.png" />
+    <None Remove="Resources\Icons\UnprocessedWater.png" />
+    <None Remove="Resources\Icons\WaterBottle.png" />
+    <None Remove="Resources\Icons\Wood.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Minecraftia-Regular.ttf" />
+    <Resource Include="Resources\Icons\ActionButton.png" />
+    <Resource Include="Resources\Icons\ActionButtonMouseOver.png" />
+    <Resource Include="Resources\Icons\BackArrow.png" />
+    <Resource Include="Resources\Icons\Backpack.png" />
+    <Resource Include="Resources\Icons\Base.png" />
+    <Resource Include="Resources\Icons\BaseBackground.png" />
+    <Resource Include="Resources\Icons\Beth.png" />
+    <Resource Include="Resources\Icons\BottomBar.png" />
+    <Resource Include="Resources\Icons\BottomBarCharacterBackground.png" />
+    <Resource Include="Resources\Icons\BottomBarCharacterBackgroundMouseOver.png" />
+    <Resource Include="Resources\Icons\BuildingAction.png" />
+    <Resource Include="Resources\Icons\BuildingActionTextBlockBackground.png" />
+    <Resource Include="Resources\Icons\CampingSite.png" />
+    <Resource Include="Resources\Icons\CampingSiteInfected.png" />
+    <Resource Include="Resources\Icons\CampingSite_foggy.png" />
+    <Resource Include="Resources\Icons\CharacterPlaceholder.png" />
+    <Resource Include="Resources\Icons\CharacterSelectBackground.png" />
+    <Resource Include="Resources\Icons\CharacterSelectEmpty.png" />
+    <Resource Include="Resources\Icons\CharacterSelectEmptyMouseOver.png" />
+    <Resource Include="Resources\Icons\CharacterSelectVerticalPanel.png" />
+    <Resource Include="Resources\Icons\CloseIcon.png" />
+    <Resource Include="Resources\Icons\DeathIndicator.png" />
+    <Resource Include="Resources\Icons\FishingDock.png" />
+    <Resource Include="Resources\Icons\FishingDock_foggy.png" />
+    <Resource Include="Resources\Icons\FoggyTile.png" />
+    <Resource Include="Resources\Icons\Forest.png" />
+    <Resource Include="Resources\Icons\Forest_foggy.png" />
+    <Resource Include="Resources\Icons\Adam.png" />
+    <Resource Include="Resources\Icons\FullHealthBar.png" />
+    <Resource Include="Resources\Icons\FullHungerBar.png" />
+    <Resource Include="Resources\Icons\FullSanityBar.png" />
+    <Resource Include="Resources\Icons\FullThirstBar.png" />
+    <Resource Include="Resources\Icons\HealthIcon.png" />
+    <Resource Include="Resources\Icons\HungerIcon.png" />
+    <Resource Include="Resources\Icons\InventoryBackground.png" />
+    <Resource Include="Resources\Icons\InventoryItemMouseOver.png" />
+    <Resource Include="Resources\Icons\ItemSelectPlus.png" />
+    <Resource Include="Resources\Icons\Items\Axe.png" />
+    <Resource Include="Resources\Icons\Items\Bandage.png" />
+    <Resource Include="Resources\Icons\Items\Berries.png" />
+    <Resource Include="Resources\Icons\Items\Book.png" />
+    <Resource Include="Resources\Icons\Items\CannedMeat.png" />
+    <Resource Include="Resources\Icons\Items\Carrot.png" />
+    <Resource Include="Resources\Icons\Items\FirstAidManual.png" />
+    <Resource Include="Resources\Icons\Items\Fish.png" />
+    <Resource Include="Resources\Icons\Items\FishingRod.png" />
+    <Resource Include="Resources\Icons\Items\Flashlight.png" />
+    <Resource Include="Resources\Icons\Items\FreshWater.png" />
+    <Resource Include="Resources\Icons\Items\Health.png" />
+    <Resource Include="Resources\Icons\Items\Hunger.png" />
+    <Resource Include="Resources\Icons\Items\Machete.png" />
+    <Resource Include="Resources\Icons\Items\Mushrooms.png" />
+    <Resource Include="Resources\Icons\Items\Sanity.png" />
+    <Resource Include="Resources\Icons\Items\StaleWater.png" />
+    <Resource Include="Resources\Icons\Items\Suncreen.png" />
+    <Resource Include="Resources\Icons\Items\Thirst.png" />
+    <Resource Include="Resources\Icons\MapBackground.png" />
+    <Resource Include="Resources\Icons\MapIcon.png" />
+    <Resource Include="Resources\Icons\MenuButton.png" />
+    <Resource Include="Resources\Icons\MenuButtonMouseOver.png" />
+    <Resource Include="Resources\Icons\Metal.png" />
+    <Resource Include="Resources\Icons\None.png" />
+    <Resource Include="Resources\Icons\Rest.png" />
+    <Resource Include="Resources\Icons\Rob.png" />
+    <Resource Include="Resources\Icons\Rope.png" />
+    <Resource Include="Resources\Icons\SanityIcon.png" />
+    <Resource Include="Resources\Icons\SleepButton.png" />
+    <Resource Include="Resources\Icons\SleepButtonMouseOver.png" />
+    <Resource Include="Resources\Icons\SleepingBag1.png" />
+    <Resource Include="Resources\Icons\SleepingBag1MouseOver.png" />
+    <Resource Include="Resources\Icons\SleepingBag2.png" />
+    <Resource Include="Resources\Icons\SleepingBag2MouseOver.png" />
+    <Resource Include="Resources\Icons\Stacy.png" />
+    <Resource Include="Resources\Icons\Stone.png" />
+    <Resource Include="Resources\Icons\Tent1.png" />
+    <Resource Include="Resources\Icons\Tent1MouseOver.png" />
+    <Resource Include="Resources\Icons\ThirstIcon.png" />
+    <Resource Include="Resources\Icons\Trailer1.png" />
+    <Resource Include="Resources\Icons\Trailer1MouseOver.png" />
+    <Resource Include="Resources\Icons\Wood.png" />
+  </ItemGroup>
+
+</Project>
