@@ -17,6 +17,11 @@ namespace E.V.O_.Models.Map.Tiles
 
         public List<DangerousEvent> DangerousEvents { get; }
 
+        public override Tile Clone(Point coordinates)
+        {
+            return new BaseTile(coordinates, TileLootTable, DangerousEvents);
+        }
+
         public BaseTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
         {
             IsVisible = true;

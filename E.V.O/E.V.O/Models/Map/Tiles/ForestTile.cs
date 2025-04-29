@@ -18,6 +18,11 @@ namespace E.V.O_.Models.Map.Tiles
 
         public List<DangerousEvent> DangerousEvents { get; }
 
+        public override Tile Clone(Point coordinates)
+        {
+            return new ForestTile(coordinates, TileLootTable, DangerousEvents);
+        }
+
         public ForestTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
         {
             TileLootTable = tileLootTable;

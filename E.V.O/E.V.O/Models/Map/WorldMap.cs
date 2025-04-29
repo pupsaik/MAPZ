@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace E.V.O_.Models.Map
 {
@@ -43,18 +44,22 @@ namespace E.V.O_.Models.Map
         {
             _hexFactory = hexFactory;
 
+            Tile campTile = _hexFactory.CreateCampTile(new Point(1, 0));
+            Tile fishingDockTile = _hexFactory.CreateFishingDockTile(new Point(0, 1));
+            Tile forestTile = _hexFactory.CreateForestTile(new Point(-1, 0));
+
+
             Tiles = new Dictionary<Point, Tile>
             {
                 [new Point(0, 0)] = _hexFactory.CreateBaseTile(new Point(0, 0)),
-                [new Point(1, 0)] = _hexFactory.CreateCampTile(new Point(1, 0)),
-                [new Point(0, 1)] = _hexFactory.CreateFishingDockTile(new Point(0, 1)),
-                [new Point(-1, 0)] = _hexFactory.CreateCampTile(new Point(-1, 0)),
-                [new Point(0, -1)] = _hexFactory.CreateForestTile(new Point(0, -1)),
-                [new Point(1, 1)] = _hexFactory.CreateFishingDockTile(new Point(1, 1)),
-                [new Point(-1, -1)] = _hexFactory.CreateFishingDockTile(new Point(-1, -1)),
-                [new Point(1, -1)] = _hexFactory.CreateFishingDockTile(new Point(1, -1)),
-                [new Point(-1, 1)] = _hexFactory.CreateFishingDockTile(new Point(-1, 1)),
-
+                [new Point(1, 0)] = campTile,
+                [new Point(0, 1)] = fishingDockTile,
+                [new Point(-1, 0)] = campTile.Clone(new Point(-1, 0)),
+                [new Point(0, -1)] = forestTile.Clone(new Point(0, -1)),
+                [new Point(1, 1)] = fishingDockTile.Clone(new Point(1, 1)),
+                [new Point(-1, -1)] = fishingDockTile.Clone(new Point(-1, -1)),
+                [new Point(1, -1)] = fishingDockTile.Clone(new Point(1, -1)),
+                [new Point(-1, 1)] = fishingDockTile.Clone(new Point(-1, 1))
             };
 
             ExploreTile(Tiles[new Point(0, 0)]);

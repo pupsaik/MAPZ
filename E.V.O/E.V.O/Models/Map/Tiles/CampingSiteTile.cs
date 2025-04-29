@@ -19,6 +19,11 @@ namespace E.V.O_.Models.Map.Tiles
 
         public List<DangerousEvent> DangerousEvents { get; }
 
+        public override Tile Clone(Point coordinates)
+        {
+            return new CampingSiteTile(coordinates, TileLootTable, DangerousEvents);
+        }
+
         public CampingSiteTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
         {
             TileLootTable = tileLootTable;

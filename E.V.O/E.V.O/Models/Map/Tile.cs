@@ -9,8 +9,8 @@ namespace E.V.O_.Models.Map
         public bool IsExplored { get; set; } = false;
         public abstract string Name { get; }
         public abstract TileType Type { get; }
-        //public abstract TileLootTable TileLootTable { get; }
-        //public abstract List<DangerousEvent> DangerousEvents { get; protected set; }
+
+        public abstract Tile Clone(Point coordinates);
 
         protected Tile(Point coordinates)
         {

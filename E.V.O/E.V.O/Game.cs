@@ -37,13 +37,13 @@ namespace E.V.O_
             Buildings = new();
 
             Inventory = [
-                //new Axe(), 
-                new CannedMeat(), 
+                new Axe(),
+                new CannedMeat(),
                 new Berries(), new Berries(), new Mushrooms(),
                 new FreshWater(), new UnprocessedWater(), new Fish(), new Carrot(),
-                new Bandage(), 
-                //new Machete(), new Book(), new FirstAidManual(),
-                //new Flashlight(), new FishingRod(), new Sunscreen()
+                new Bandage(),
+                new Machete(), new Book(), new FirstAidManual(),
+                new Flashlight(), new FishingRod(), new Sunscreen()
             ];
 
             BuildingResources = new()

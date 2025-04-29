@@ -17,6 +17,11 @@ namespace E.V.O_.Models.Map.Tiles
 
         public List<DangerousEvent> DangerousEvents { get;}
 
+        public override Tile Clone(Point coordinates)
+        {
+            return new HuntersHut(coordinates, TileLootTable, DangerousEvents);
+        }
+
         public HuntersHut(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
         {
             TileLootTable = tileLootTable;
