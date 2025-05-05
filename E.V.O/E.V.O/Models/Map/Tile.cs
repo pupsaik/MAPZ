@@ -7,6 +7,7 @@ namespace E.V.O_.Models.Map
         public Point Coordinates { get; set; }
         public bool IsVisible { get; set; } = false;
         public bool IsExplored { get; set; } = false;
+        public bool IsOccupied { get; set; } = false;
         public abstract string Name { get; }
         public abstract TileType Type { get; }
 

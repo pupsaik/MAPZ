@@ -1,4 +1,5 @@
-﻿using E.V.O_.Models.Characters;
+﻿using E.V.O_.GameManaging;
+using E.V.O_.Models.Characters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -137,10 +138,10 @@ namespace E.V.O_.Models.Loot
             Item = item;
         }
 
-        public void GetProfit()
-        {
-            Game.Instance.Inventory.Add(Item);
-        }
+        //public void GetProfit()
+        //{
+        //    Game.Instance.Inventory.AddItem(Item);
+        //}
     }
 
     public interface IConsumptionEffect : IOccupationProfit

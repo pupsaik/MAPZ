@@ -1,4 +1,5 @@
-﻿using E.V.O_.Models;
+﻿using E.V.O_.GameManaging;
+using E.V.O_.Models;
 using E.V.O_.Models.Buildings;
 using E.V.O_.Models.Characters;
 using E.V.O_.Models.Loot;
@@ -18,6 +19,7 @@ namespace E.V.O_.ViewModels
 {
     public class BuildingActionNonOccupiedVM : BaseViewModel
     {
+        private CharacterManager _characterManager;
         private Building _building;
 
         public BuildingActionCharacterSelectVM CharacterSelectVM { get; } = new();
@@ -67,13 +69,15 @@ namespace E.V.O_.ViewModels
         public event Action CloseEvent;
         public event Action SubmitEvent;
 
-        public BuildingActionNonOccupiedVM(Building building)
+        public BuildingActionNonOccupiedVM(Building building, CharacterManager characterManager, InventoryManager inventoryManager)
         {
+            _characterManager = characterManager;
+
             _building = building;
             _isOccupied = _building.OccupiedCharacter != null ? true : false;
 
-            CharacterList = Game.Instance.Characters.Where(ch => ch.CurrentHealth > 0 && ch.CurrentOccupation is NoOccupation).Select(x => new BuildingActionCharacterListElementVM(x)).ToList();
-            ToolList = Game.Instance.Inventory.Where(x => x is ITool tool && tool.TileType == TileType.Base && !tool.IsOccupied).Select(x => new BuildingActionToolListElementVM(x as ITool)).ToList();
+            CharacterList = _characterManager.GetCharacters().Where(ch => ch.CurrentHealth > 0 && ch.CurrentOccupation is NoOccupation).Select(x => new BuildingActionCharacterListElementVM(x)).ToList();
+            ToolList = inventoryManager.GetItems().Where(x => x is ITool tool && tool.TileType == TileType.Base && !tool.IsOccupied).Select(x => new BuildingActionToolListElementVM(x as ITool)).ToList();
 
             OpenCharacterSelectionModalCommand = new RelayCommand(() => IsCharacterSelectionModalOpen = !IsCharacterSelectionModalOpen);
             OpenToolSelectionModalCommand = new RelayCommand(() => IsToolSelectionModalOpen = !IsToolSelectionModalOpen);
@@ -104,7 +108,8 @@ namespace E.V.O_.ViewModels
         {
             try
             {
-                _building.Occupy(CharacterSelectVM.Character, ToolSelectVM.Tool);
+                OccupationFacade occupationFacade = new();
+                occupationFacade.OccupyBuilding(_building, CharacterSelectVM.Character, ToolSelectVM.Tool);
                 SubmitEvent?.Invoke();
             }
             catch (Exception ex)

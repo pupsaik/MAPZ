@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E.V.O_.Models.Map.Tiles
+﻿namespace E.V.O_.Models.Map.Tiles
 {
     public abstract class TileDecorator : Tile
     {

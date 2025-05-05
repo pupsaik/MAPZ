@@ -44,7 +44,7 @@ namespace E.V.O_.Models.Buildings
             DetachAll();
         }
 
-        public virtual List<IOccupationProfit> BuildingProfitPool { get; }
+        public virtual List<IOccupationProfit> ProfitPool { get; }
 
         public Building()
         {
@@ -53,14 +53,14 @@ namespace E.V.O_.Models.Buildings
 
         public void GiveProfit()
         {
-            foreach (var buildingProfit in BuildingProfitPool)
-            {
-                if (buildingProfit is CompositeEffect ce)
-                    ce.Apply(OccupiedCharacter);
+            //foreach (var buildingProfit in BuildingProfitPool)
+            //{
+            //    if (buildingProfit is CompositeEffect ce)
+            //        ce.Apply(OccupiedCharacter);
 
-                if (buildingProfit is ItemProfit ip)
-                    ip.GetProfit();
-            }
+            //    if (buildingProfit is ItemProfit ip)
+            //        ip.GetProfit();
+            //}
         }
 
         public void Occupy(Character character, ITool tool)

@@ -20,7 +20,7 @@ namespace E.V.O_.Models.Buildings
 
         public Character OccupiedCharacter { get; set; }
 
-        public List<IOccupationProfit> BuildingProfitPool => null;
+        public List<IOccupationProfit> ProfitPool => null;
 
         public OccupationType Type => OccupationType.None;
 
@@ -30,11 +30,6 @@ namespace E.V.O_.Models.Buildings
         }
 
         public void Detach(IObserver observer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GiveProfit()
         {
             throw new NotImplementedException();
         }

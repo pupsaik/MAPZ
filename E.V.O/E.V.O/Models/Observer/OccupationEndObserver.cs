@@ -1,4 +1,5 @@
 ﻿using Accessibility;
+using E.V.O_.GameManaging;
 using E.V.O_.Models.Buildings;
 using E.V.O_.Models.Occupation;
 using System;
@@ -30,7 +31,9 @@ namespace E.V.O_.Models.Observer
                     _occupation.OccupiedCharacter.ToolInHand.IsOccupied = false;
                     _occupation.OccupiedCharacter.ToolInHand = null;
                 }
-                _occupation.GiveProfit();
+
+                OccupationFacade occupationFacade = new OccupationFacade();
+                occupationFacade.GetProfitFromOccupation(_occupation, _occupation.OccupiedCharacter);
                 _occupation.OccupiedCharacter = null;
             }
         }

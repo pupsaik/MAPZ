@@ -1,12 +1,6 @@
 ﻿using E.V.O_.Models.Loot;
 using E.V.O_.Models.Map.Tiles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
 
 namespace E.V.O_.Models.Map.Factories
 {
@@ -16,7 +10,8 @@ namespace E.V.O_.Models.Map.Factories
 
         public Tile CreateCampTile(Point coordinates)
         {
-            CampingSiteTile tile = new(coordinates, new()
+            CampingSiteTile tile = new
+                (coordinates, new()
             {
                 Drops = [
                     new LootDrop(new CannedMeat(), 0.5f, 1, 3),
@@ -58,7 +53,7 @@ namespace E.V.O_.Models.Map.Factories
 
         public Tile CreateHuntersHutTile(Point coordinates)
         {
-            HuntersHut tile = new(coordinates, new()
+            HuntersHutTile tile = new(coordinates, new()
             {
                 Drops = [
                     new LootDrop(new Resource(ResourceType.Wood, 0), 1, 1, 2),

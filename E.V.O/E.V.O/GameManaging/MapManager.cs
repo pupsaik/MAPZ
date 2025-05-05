@@ -1,4 +1,5 @@
 ﻿using Accessibility;
+using E.V.O_.Models.Map;
 using E.V.O_.Models.Map.Tiles;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace E.V.O_.Models.Map
+namespace E.V.O_.GameManaging
 {
-    public class WorldMap
+    public class MapManager
     {
-        private static WorldMap _instance;
-        private static readonly object _lock = new();
-
-        private ITileFactory _hexFactory;
+        private readonly ITileFactory _hexFactory;
 
         public Dictionary<Point, Tile> Tiles { get; }
+
+        public IEnumerable<Tile> GetTiles() => Tiles.Values;
 
         public void ExploreTile(Tile tile)
         {
@@ -33,21 +33,23 @@ namespace E.V.O_.Models.Map
             if (down != null) down.IsVisible = true;
         }
 
+        public void OccupyTile(Tile tile)
+        {
+            tile.IsOccupied = true;
+        }
+
         public Tile? GetTile(Point coordinates)
         {
             return Tiles.TryGetValue(coordinates, out var tile) ? tile : null;
         }
 
-        public IEnumerable<Tile> GetTiles() => Tiles.Values;
-
-        private WorldMap(ITileFactory hexFactory)
+        public MapManager(ITileFactory hexFactory)
         {
             _hexFactory = hexFactory;
 
             Tile campTile = _hexFactory.CreateCampTile(new Point(1, 0));
             Tile fishingDockTile = _hexFactory.CreateFishingDockTile(new Point(0, 1));
             Tile forestTile = _hexFactory.CreateForestTile(new Point(-1, 0));
-
 
             Tiles = new Dictionary<Point, Tile>
             {
@@ -63,22 +65,6 @@ namespace E.V.O_.Models.Map
             };
 
             ExploreTile(Tiles[new Point(0, 0)]);
-        }
-
-        public static WorldMap GetInstance(ITileFactory hexFactory)
-        {
-            if (_instance == null)
-            {
-                lock (_lock)
-                {
-                    if (_instance == null)
-                    {
-                        _instance = new WorldMap(hexFactory);
-                    }
-                }
-            }
-
-            return _instance;
         }
     }
 }

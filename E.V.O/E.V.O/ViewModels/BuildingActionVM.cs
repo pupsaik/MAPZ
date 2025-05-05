@@ -1,22 +1,17 @@
 ﻿using E.V.O_.Models.Buildings;
-using E.V.O_.Models.Characters;
 using E.V.O_.Models.Loot;
-using E.V.O_.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System.Windows;
 using System.Collections.ObjectModel;
+using E.V.O_.GameManaging;
 
 namespace E.V.O_.ViewModels
 {
     public class BuildingActionVM : BaseViewModel
     {
+        private InventoryManager _inventoryManager;
+        private CharacterManager _characterManager;
         private Building _building;
 
         public string Name => _building?.Name ?? "";
@@ -53,8 +48,10 @@ namespace E.V.O_.ViewModels
 
         public ICommand CloseCommand { get; }
 
-        public BuildingActionVM()
+        public BuildingActionVM(CharacterManager characterManager, InventoryManager inventoryManager)
         {
+            _characterManager = characterManager;
+            _inventoryManager = inventoryManager;
             CloseCommand = new RelayCommand(() => CloseEvent?.Invoke());
         }
 
@@ -72,7 +69,7 @@ namespace E.V.O_.ViewModels
             }
             else
             {
-                _buildingActionNonOccupiedVM = new BuildingActionNonOccupiedVM(_building);
+                _buildingActionNonOccupiedVM = new BuildingActionNonOccupiedVM(_building, _characterManager, _inventoryManager);
                 _buildingActionNonOccupiedVM.CloseEvent += () => CloseEvent?.Invoke();
                 _buildingActionNonOccupiedVM.SubmitEvent += () =>
                 {
@@ -87,7 +84,7 @@ namespace E.V.O_.ViewModels
 
             Duration = _building.Duration;
 
-            foreach (var buildingProfit in building.BuildingProfitPool)
+            foreach (var buildingProfit in building.ProfitPool)
             {
                 if (buildingProfit is CompositeEffect compositeEffect)
                 {

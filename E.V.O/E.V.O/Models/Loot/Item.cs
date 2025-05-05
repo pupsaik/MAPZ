@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace E.V.O_.Models.Loot
 {
-    public interface IItem : ILoot
+    public interface IItem : ILoot, IOccupationProfit
     {
         
     }

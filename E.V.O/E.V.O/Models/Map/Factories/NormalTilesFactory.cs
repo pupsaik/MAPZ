@@ -1,11 +1,6 @@
 ﻿using E.V.O_.Models.Loot;
 using E.V.O_.Models.Map.Tiles;
 using E.V.O_.Models.Map.Tiles.Decorators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace E.V.O_.Models.Map.Factories
@@ -60,7 +55,7 @@ namespace E.V.O_.Models.Map.Factories
 
         public Tile CreateHuntersHutTile(Point coordinates)
         {
-            HuntersHut tile = new(coordinates, new()
+            HuntersHutTile tile = new(coordinates, new()
             {
                 Drops = [
                     new LootDrop(new Resource(ResourceType.Wood, 0), 1, 1, 2),

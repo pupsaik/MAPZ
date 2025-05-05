@@ -17,7 +17,7 @@ namespace E.V.O_.Models.Buildings
         public override OccupationType Type => OccupationType.Rest;
         public override int Duration => 1;
 
-        public override List<IOccupationProfit> BuildingProfitPool => [
+        public override List<IOccupationProfit> ProfitPool => [
             new CompositeEffect(new SanityImpact(10))
         ];
     }

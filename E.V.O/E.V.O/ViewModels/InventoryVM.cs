@@ -1,4 +1,5 @@
-﻿using E.V.O_.Models.Loot;
+﻿using E.V.O_.GameManaging;
+using E.V.O_.Models.Loot;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,10 +18,10 @@ namespace E.V.O_.ViewModels
 
         public ICommand BackCommand { get; }
 
-        public InventoryVM(MainVM mainVM)
+        public InventoryVM(MainVM mainVM, InventoryManager inventoryManager)
         {
             _mainVM = mainVM;
-            foreach (var item in Game.Instance.Inventory)
+            foreach (var item in inventoryManager.GetItems())
             {
                 if (item is IConsumable consumable)
                     InventoryItemVMs.Add(new InventoryConsumableVM(consumable));

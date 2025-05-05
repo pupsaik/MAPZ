@@ -1,4 +1,5 @@
-﻿using E.V.O_.Views;
+﻿using E.V.O_.GameManaging;
+using E.V.O_.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +25,16 @@ namespace E.V.O_.ViewModels
         public MapVM MapVM { get; }
         public InventoryVM InventoryVM { get; }
         public BuildingActionVM BuildingActionVM { get; }
+        private Game _game;
 
-        public MainVM()
+        public MainVM(Game game)
         {
-            BaseVM = new(this);
-            MapVM = new(this);
-            InventoryVM = new(this);
-            BuildingActionVM = new();
+            _game = game;
+
+            BaseVM = new(this, _game.TimeManager, _game.Buildings, _game.CharacterManager);
+            MapVM = new(this, _game.MapManager);
+            InventoryVM = new(this, _game.Inventory);
+            BuildingActionVM = new(_game.CharacterManager, _game.Inventory);
 
             CurrentVM = BaseVM; 
         }

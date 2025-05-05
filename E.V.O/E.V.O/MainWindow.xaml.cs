@@ -1,4 +1,5 @@
-﻿using E.V.O_.ViewModels;
+﻿using E.V.O_.GameManaging;
+using E.V.O_.ViewModels;
 using System.Windows;
 
 namespace E.V.O_
@@ -8,12 +9,14 @@ namespace E.V.O_
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Game _game;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            DataContext = new MainVM();
+            _game = new();
+            DataContext = new MainVM(_game);
 
         }
     }

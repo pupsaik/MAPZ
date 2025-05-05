@@ -1,4 +1,5 @@
-﻿using E.V.O_.Models.Characters;
+﻿using E.V.O_.GameManaging;
+using E.V.O_.Models.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,10 @@ namespace E.V.O_.ViewModels
         public List<CharacterVM> CharacterVMs { get; set; }
        
 
-        public CharacterPanelVM(MainVM mainVM)
+        public CharacterPanelVM(MainVM mainVM, CharacterManager characterManager)
         {
             _mainVM = mainVM;
-            CharacterVMs = Game.Instance.Characters.Select(x => new CharacterVM(x)).ToList();
+            CharacterVMs = characterManager.GetCharacters().Select(x => new CharacterVM(x)).ToList();
             OpenMapCommand = new RelayCommand(OpenMapMethod);
             OpenInventoryCommand = new RelayCommand(OpenInventoryMethod);
         }

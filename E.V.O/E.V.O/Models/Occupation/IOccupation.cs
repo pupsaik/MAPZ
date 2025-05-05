@@ -15,10 +15,8 @@ namespace E.V.O_.Models.Occupation
         int Duration { get; }
         int TimeLeft { get; set; }
         Character OccupiedCharacter { get; set; }
-        void Occupy(Character character, ITool tool);
-        List<IOccupationProfit> BuildingProfitPool { get; }
+        List<IOccupationProfit> ProfitPool { get; }
         OccupationType Type { get; }
-        void GiveProfit();
 
         public void Attach(IObserver observer);
         public void Detach(IObserver observer);

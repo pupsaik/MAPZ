@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace E.V.O_.Models.Map.Tiles
 {
-    public class HuntersHut : Tile
+    public class HuntersHutTile : Tile
     {
         public override string Name => "HuntersHut";
 
@@ -19,10 +14,10 @@ namespace E.V.O_.Models.Map.Tiles
 
         public override Tile Clone(Point coordinates)
         {
-            return new HuntersHut(coordinates, TileLootTable, DangerousEvents);
+            return new HuntersHutTile(coordinates, TileLootTable, DangerousEvents);
         }
 
-        public HuntersHut(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
+        public HuntersHutTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
         {
             TileLootTable = tileLootTable;
             DangerousEvents = dangerousEvents;

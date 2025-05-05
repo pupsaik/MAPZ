@@ -1,4 +1,5 @@
-﻿using E.V.O_.Models.Map;
+﻿using E.V.O_.GameManaging;
+using E.V.O_.Models.Map;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,10 +23,10 @@ namespace E.V.O_.ViewModels
 
         public ICommand BackCommand { get; set; }
 
-        public MapVM(MainVM mainVM)
+        public MapVM(MainVM mainVM, MapManager mapManager)
         {
             _mainVM = mainVM;
-            LoadFromTiles(Game.Instance.WorldMap.Tiles, 125);
+            LoadFromTiles(mapManager.Tiles, 125);
             BackCommand = new RelayCommand(() => _mainVM.CurrentVM = _mainVM.BaseVM);
         }
 
