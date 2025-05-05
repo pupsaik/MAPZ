@@ -51,6 +51,7 @@
     <None Remove="Resources\Icons\CharacterSelectEmptyMouseOver.png" />
     <None Remove="Resources\Icons\CharacterSelectVerticalPanel.png" />
     <None Remove="Resources\Icons\CloseIcon.png" />
+    <None Remove="Resources\Icons\ConsumableUsageWindow.png" />
     <None Remove="Resources\Icons\DeathIndicator.png" />
     <None Remove="Resources\Icons\Fish.png" />
     <None Remove="Resources\Icons\FishingDock.png" />
@@ -69,6 +70,7 @@
     <None Remove="Resources\Icons\HungerIcon.png" />
     <None Remove="Resources\Icons\InventoryBackground.png" />
     <None Remove="Resources\Icons\InventoryItemMouseOver.png" />
+    <None Remove="Resources\Icons\ItemDescriptionBar.png" />
     <None Remove="Resources\Icons\ItemSelectPlus.png" />
     <None Remove="Resources\Icons\Items\Axe.png" />
     <None Remove="Resources\Icons\Items\Bandage.png" />
@@ -144,6 +146,7 @@
     <Resource Include="Resources\Icons\CharacterSelectEmptyMouseOver.png" />
     <Resource Include="Resources\Icons\CharacterSelectVerticalPanel.png" />
     <Resource Include="Resources\Icons\CloseIcon.png" />
+    <Resource Include="Resources\Icons\ConsumableUsageWindow.png" />
     <Resource Include="Resources\Icons\DeathIndicator.png" />
     <Resource Include="Resources\Icons\FishingDock.png" />
     <Resource Include="Resources\Icons\FishingDock_foggy.png" />
@@ -159,6 +162,7 @@
     <Resource Include="Resources\Icons\HungerIcon.png" />
     <Resource Include="Resources\Icons\InventoryBackground.png" />
     <Resource Include="Resources\Icons\InventoryItemMouseOver.png" />
+    <Resource Include="Resources\Icons\ItemDescriptionBar.png" />
     <Resource Include="Resources\Icons\ItemSelectPlus.png" />
     <Resource Include="Resources\Icons\Items\Axe.png" />
     <Resource Include="Resources\Icons\Items\Bandage.png" />

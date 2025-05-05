@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace E.V.O_.Views.Inventory
 {
     /// <summary>
-    /// Interaction logic for InventoryItemToolTipView.xaml
+    /// Interaction logic for InventoryItemDescription.xaml
     /// </summary>
-    public partial class InventoryItemToolTipView : UserControl
+    public partial class InventoryItemDescription : UserControl
     {
-        public InventoryItemToolTipView()
+        public InventoryItemDescription()
         {
             InitializeComponent();
         }

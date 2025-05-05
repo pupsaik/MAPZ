@@ -118,9 +118,9 @@ namespace E.V.O_.ViewModels
                 Type = ce.Type.ToString();
                 Amount = ce.Amount;
             }
-            else if (buildingProfit is ItemProfit ip)
+            else if (buildingProfit is IItem ip)
             {
-                Type = ip.Item.Name;
+                Type = ip.Name;
                 Amount = 1;
             }
         }

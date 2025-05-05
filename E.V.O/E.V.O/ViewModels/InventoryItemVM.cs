@@ -13,14 +13,17 @@ namespace E.V.O_.ViewModels
     {
         ImageSource ItemIcon { get; }
         string Name { get; }
+        string Description { get; }
+        InventoryItemVMType Type { get; }
         List<IInventoryItemEffectVM> ItemEffectVMs { get; }
     }
 
     public class InventoryConsumableVM : IInventoryItemVM
     {
         public ImageSource ItemIcon => new BitmapImage(new Uri($"pack://application:,,,/Resources/Icons/Items/{InventoryItem.Name.Replace(" ", "")}.png"));
-
         public string Name => InventoryItem.Name;
+        public string Description => InventoryItem.Description;
+        public InventoryItemVMType Type => InventoryItemVMType.ConsumableVM;
 
         public List<IInventoryItemEffectVM> ItemEffectVMs { get; } = [];
 
@@ -29,11 +32,13 @@ namespace E.V.O_.ViewModels
         public InventoryConsumableVM(IConsumable inventoryItem)
         {
             InventoryItem = inventoryItem;
+
+
             if (InventoryItem.Effect is CompositeEffect compositeEffect)
             {
                 foreach (var effect in compositeEffect.Effects)
                 {
-                    ItemEffectVMs.Add(new InventoryConsumableItemEffectVM(effect));
+                    ItemEffectVMs.Add(new InventoryConsumableItemEffectVM((ConsumptionEffect)effect));
                 }
             }
             else if (InventoryItem.Effect is ConsumptionEffect consumptionEffect)
@@ -48,6 +53,8 @@ namespace E.V.O_.ViewModels
         public ImageSource ItemIcon => new BitmapImage(new Uri($"pack://application:,,,/Resources/Icons/Items/{InventoryItem.Name.Replace(" ", "")}.png"));
 
         public string Name => InventoryItem.Name;
+        public string Description => InventoryItem.Description;
+        public InventoryItemVMType Type => InventoryItemVMType.ToolVM;
 
         public List<InventoryConsumableItemEffectVM> Effects { get; } = [];
 
@@ -63,22 +70,27 @@ namespace E.V.O_.ViewModels
 
     public interface IInventoryItemEffectVM
     {
-        
+
     }
 
     public class InventoryConsumableItemEffectVM : IInventoryItemEffectVM
     {
-        private IConsumptionEffect _consumptionEffect;
+        private ConsumptionEffect _consumptionEffect;
 
-        public string Name { get; }
-        public int Amount { get; }
-        public ImageSource EffectIcon => new BitmapImage(new Uri($"pack://application:,,,/Resources/Icons/Items/{_consumptionEffect.Type}.png"));
+        public string Type => _consumptionEffect.Type.ToString();
+        public int Amount { get; set; }
+        public ImageSource Image => new BitmapImage(new Uri($"pack://application:,,,/Resources/Icons/Items/{_consumptionEffect.Type}.png"));
 
-        public InventoryConsumableItemEffectVM(IConsumptionEffect consumptionEffect)
+        public InventoryConsumableItemEffectVM(ConsumptionEffect consumptionEffect)
         {
             _consumptionEffect = consumptionEffect;
+            Amount = _consumptionEffect.Amount;
         }
     }
 
-
+    public enum InventoryItemVMType
+    {
+        ToolVM,
+        ConsumableVM
+    }
 }

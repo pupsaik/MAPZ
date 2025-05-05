@@ -26,6 +26,7 @@ namespace E.V.O_.Models.Loot
     public abstract class Food : IConsumable
     {
         public abstract string Name { get; }
+        public abstract string Description { get; }
         public ConsumableType Type => ConsumableType.Food;
         public IConsumptionEffect Effect { get; set; }
     }
@@ -34,12 +35,16 @@ namespace E.V.O_.Models.Loot
     {
         public abstract string Name { get; }
         public ConsumableType Type => ConsumableType.Medical;
+        public abstract string Description { get; }
+
         public IConsumptionEffect Effect { get; set; }
     }
 
     public class Berries : Food
     {
         public override string Name => "Berries";
+        public override string Description => "потім придумаю ;)";
+
 
         public Berries()
         {
@@ -56,6 +61,7 @@ namespace E.V.O_.Models.Loot
     public class Mushrooms : Food
     {
         public override string Name => "Mushrooms";
+        public override string Description => "потім придумаю ;)";
 
         public Mushrooms()
         {
@@ -72,6 +78,7 @@ namespace E.V.O_.Models.Loot
     public class CannedMeat : Food
     {
         public override string Name => "Canned Meat";
+        public override string Description => "потім придумаю ;)";
 
         public CannedMeat()
         {
@@ -82,6 +89,7 @@ namespace E.V.O_.Models.Loot
     public class FreshWater : Food, IOccupationProfit
     {
         public override string Name => "Fresh Water";
+        public override string Description => "потім придумаю ;)";
 
         public FreshWater()
         {
@@ -92,6 +100,7 @@ namespace E.V.O_.Models.Loot
     public class UnprocessedWater : Food
     {
         public override string Name => "Stale Water";
+        public override string Description => "потім придумаю ;)";
 
         public UnprocessedWater()
         {
@@ -102,6 +111,7 @@ namespace E.V.O_.Models.Loot
     public class Fish : Food
     {
         public override string Name => "Fish";
+        public override string Description => "потім придумаю ;)";
 
         public Fish()
         {
@@ -112,6 +122,7 @@ namespace E.V.O_.Models.Loot
     public class Carrot : Food, IOccupationProfit
     {
         public override string Name => "Carrot";
+        public override string Description => "потім придумаю ;)";
 
         public Carrot()
         {
@@ -122,26 +133,12 @@ namespace E.V.O_.Models.Loot
     public class Bandage : Medical
     {
         public override string Name => "Bandage";
+        public override string Description => "потім придумаю ;)";
 
         public Bandage()
         {
             Effect = new CompositeEffect(new HealthImpact(25), new SanityImpact(5));
         }
-    }
-
-    public class ItemProfit : IOccupationProfit
-    {
-        public IItem Item { get; set; }
-
-        public ItemProfit(IItem item)
-        {
-            Item = item;
-        }
-
-        //public void GetProfit()
-        //{
-        //    Game.Instance.Inventory.AddItem(Item);
-        //}
     }
 
     public interface IConsumptionEffect : IOccupationProfit
@@ -152,7 +149,8 @@ namespace E.V.O_.Models.Loot
 
     public abstract class ConsumptionEffect : IOccupationProfit, IConsumptionEffect
     {
-        public int Amount { get; set; }
+        public int Amount { get; }
+
         public abstract ConsumptionEffectType Type { get; }
 
         protected ConsumptionEffect(int amount)

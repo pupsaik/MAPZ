@@ -9,7 +9,7 @@ namespace E.V.O_.Models.Loot
 {
     public interface IItem : ILoot, IOccupationProfit
     {
-        
+        string Description { get; }
     }
 
     public enum LootCategory

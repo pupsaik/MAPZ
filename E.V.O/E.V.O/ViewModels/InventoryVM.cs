@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace E.V.O_.ViewModels
@@ -15,6 +16,17 @@ namespace E.V.O_.ViewModels
         private MainVM _mainVM;
 
         public ObservableCollection<IInventoryItemVM> InventoryItemVMs { get; } = [];
+
+        private IInventoryItemVM _hoveredItem;
+        public IInventoryItemVM HoveredItem
+        {
+            get => _hoveredItem;
+            set
+            {
+                _hoveredItem = value;
+                OnPropertyChanged(nameof(HoveredItem));
+            }
+        }
 
         public ICommand BackCommand { get; }
 
