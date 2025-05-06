@@ -33,7 +33,7 @@ namespace E.V.O_.ViewModels
 
             BaseVM = new(this, _game.TimeManager, _game.Buildings, _game.CharacterManager);
             MapVM = new(this, _game.MapManager);
-            InventoryVM = new(this, _game.Inventory);
+            InventoryVM = new(this, _game.CharacterManager, _game.Inventory);
             BuildingActionVM = new(_game.CharacterManager, _game.Inventory);
 
             CurrentVM = BaseVM; 

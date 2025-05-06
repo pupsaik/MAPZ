@@ -163,11 +163,11 @@ namespace E.V.O_.Models.Loot
 
     public class CompositeEffect : IConsumptionEffect, IOccupationProfit
     {
-        public readonly List<IConsumptionEffect> Effects = [];
+        public readonly List<ConsumptionEffect> Effects = [];
 
         public ConsumptionEffectType Type => ConsumptionEffectType.Composite;
 
-        public void AddEffect(IConsumptionEffect effect) => Effects.Add(effect);
+        public void AddEffect(ConsumptionEffect effect) => Effects.Add(effect);
 
         public void Apply(Character character)
         {
@@ -177,7 +177,7 @@ namespace E.V.O_.Models.Loot
             }
         }
 
-        public CompositeEffect(params IConsumptionEffect[] effects)
+        public CompositeEffect(params ConsumptionEffect[] effects)
         {
             Effects = effects.ToList();
         }

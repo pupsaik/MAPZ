@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -27,18 +28,17 @@ namespace E.V.O_.ViewModels
 
         public List<IInventoryItemEffectVM> ItemEffectVMs { get; } = [];
 
-        private IConsumable InventoryItem { get; }
+        public IConsumable InventoryItem { get; }
 
         public InventoryConsumableVM(IConsumable inventoryItem)
         {
             InventoryItem = inventoryItem;
 
-
             if (InventoryItem.Effect is CompositeEffect compositeEffect)
             {
                 foreach (var effect in compositeEffect.Effects)
                 {
-                    ItemEffectVMs.Add(new InventoryConsumableItemEffectVM((ConsumptionEffect)effect));
+                    ItemEffectVMs.Add(new InventoryConsumableItemEffectVM(effect as ConsumptionEffect));
                 }
             }
             else if (InventoryItem.Effect is ConsumptionEffect consumptionEffect)
@@ -55,6 +55,9 @@ namespace E.V.O_.ViewModels
         public string Name => InventoryItem.Name;
         public string Description => InventoryItem.Description;
         public InventoryItemVMType Type => InventoryItemVMType.ToolVM;
+
+        public ICommand ItemClickedCommand { get; }
+
 
         public List<InventoryConsumableItemEffectVM> Effects { get; } = [];
 

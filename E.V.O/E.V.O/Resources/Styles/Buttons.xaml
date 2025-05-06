@@ -86,16 +86,24 @@
     </Style>
 
     <Style TargetType="Button" x:Key="CloseButton">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate>
-                    <Image Source="pack://application:,,,/Resources/Icons/CloseIcon.png"/>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/Icons/CloseIcon.png"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="30"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style TargetType="Button" x:Key="MenuButton">

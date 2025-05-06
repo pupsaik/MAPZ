@@ -25,6 +25,9 @@
     <Compile Update="Views\CharacterPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Inventory\ConsumeItemView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Inventory\InventoryItemDescription.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\CharacterPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Inventory\ConsumeItemView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Inventory\InventoryItemDescription.xaml">

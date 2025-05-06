@@ -41,5 +41,21 @@ namespace E.V.O_.Views.Inventory
                 vm.HoveredItem = null;
             }
         }
+
+        private void RootGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is FrameworkElement element && DataContext is InventoryVM vm && element.DataContext is IInventoryItemVM item)
+            {
+                if (item is InventoryConsumableVM consumableVM)
+                {
+                    vm.SelectedConsumable = consumableVM.InventoryItem;
+                    vm.IsConsumeItemWindowOpened = true;
+                    vm.ConsumeItemVM = new(vm.SelectedConsumable, vm.CharacterManager, vm.InventoryManager);
+                    vm.ConsumeItemVM.CloseEvent += () => vm.IsConsumeItemWindowOpened = false;
+
+                }
+            }
+        }
+
     }
 }
