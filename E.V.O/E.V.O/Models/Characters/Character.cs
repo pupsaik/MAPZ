@@ -152,7 +152,7 @@ public class Character
         set
         {
             _currentOccupation = value;
-            Notify(CharacterEventType.IconChanged, CurrentOccupation.Type);
+            Notify(CharacterEventType.IconChanged, CurrentOccupation.OccupationType);
         }
     }
 

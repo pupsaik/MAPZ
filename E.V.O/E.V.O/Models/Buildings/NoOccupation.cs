@@ -1,5 +1,6 @@
 ﻿using E.V.O_.Models.Characters;
 using E.V.O_.Models.Loot;
+using E.V.O_.Models.Map;
 using E.V.O_.Models.Observer;
 using E.V.O_.Models.Occupation;
 using System;
@@ -12,7 +13,7 @@ namespace E.V.O_.Models.Buildings
 {
     public class NoOccupation : IOccupation
     {
-        public string Name => "No occupation";
+        public string Name => "Base";
 
         public int Duration => 0;
 
@@ -20,9 +21,11 @@ namespace E.V.O_.Models.Buildings
 
         public Character OccupiedCharacter { get; set; }
 
-        public List<IOccupationProfit> ProfitPool => null;
+        public TileLootTable TileLootTable { get; init; } = new([]);
 
-        public OccupationType Type => OccupationType.None;
+        public List<DangerousEvent> DangerousEvents { get; }
+
+        public OccupationType OccupationType => OccupationType.None;
 
         public void Attach(IObserver observer)
         {

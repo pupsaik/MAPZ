@@ -1,26 +1,17 @@
-﻿using System.Windows;
+﻿using E.V.O_.Models.Occupation;
+using System.Windows;
 
 namespace E.V.O_.Models.Map.Tiles
 {
     public class FishingDockTile : Tile
     {
-        public override string Name => "FishingDock";
-
-        public override TileType Type => TileType.FishingDock;
-
-        public TileLootTable TileLootTable { get; }
-
-        public List<DangerousEvent> DangerousEvents { get; }
-
         public override Tile Clone(Point coordinates)
         {
-            return new FishingDockTile(coordinates, TileLootTable, DangerousEvents);
+            return new FishingDockTile(coordinates, Occupation);
         }
 
-        public FishingDockTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
+        public FishingDockTile(Point coordinates, IOccupation occupation) : base(coordinates, occupation)
         {
-            TileLootTable = tileLootTable;
-            DangerousEvents = dangerousEvents;
         }
     }
 }

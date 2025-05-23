@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace E.V.O_.GameManaging
 {
@@ -24,6 +25,7 @@ namespace E.V.O_.GameManaging
         {
             DayCounter++;
             DayCounterChanged?.Invoke();
+
             foreach (var character in _characterManager.GetCharacters())
             {
                 character.SkipToNextDay();

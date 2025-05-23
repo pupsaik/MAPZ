@@ -31,6 +31,7 @@
     <None Remove="Resources\Icons\BaseBackground.png" />
     <None Remove="Resources\Icons\basehex.png" />
     <None Remove="Resources\Icons\basehex_equal.png" />
+    <None Remove="Resources\Icons\BearAttack.png" />
     <None Remove="Resources\Icons\Berries.png" />
     <None Remove="Resources\Icons\Beth.png" />
     <None Remove="Resources\Icons\BottomBar.png" />
@@ -55,11 +56,13 @@
     <None Remove="Resources\Icons\DeathIndicator.png" />
     <None Remove="Resources\Icons\Fish.png" />
     <None Remove="Resources\Icons\FishingDock.png" />
+    <None Remove="Resources\Icons\FishingDockStatus.png" />
     <None Remove="Resources\Icons\FishingDock_foggy.png" />
     <None Remove="Resources\Icons\foggycampsitehex.png" />
     <None Remove="Resources\Icons\foggyhex.png" />
     <None Remove="Resources\Icons\FoggyTile.png" />
     <None Remove="Resources\Icons\Forest.png" />
+    <None Remove="Resources\Icons\ForestStatus.png" />
     <None Remove="Resources\Icons\Forest_foggy.png" />
     <None Remove="Resources\Icons\FreshWater.png" />
     <None Remove="Resources\Icons\FullHealthBar.png" />
@@ -98,8 +101,11 @@
     <None Remove="Resources\Icons\MenuButtonMouseOver.png" />
     <None Remove="Resources\Icons\Metal.png" />
     <None Remove="Resources\Icons\Mushrooms.png" />
-    <None Remove="Resources\Icons\None.png" />
+    <None Remove="Resources\Icons\NoneStatus.png" />
+    <None Remove="Resources\Icons\OccupationBackground.png" />
+    <None Remove="Resources\Icons\Overheating.png" />
     <None Remove="Resources\Icons\Rest.png" />
+    <None Remove="Resources\Icons\RestStatus.png" />
     <None Remove="Resources\Icons\Rob.png" />
     <None Remove="Resources\Icons\Rope.png" />
     <None Remove="Resources\Icons\SanityIcon.png" />
@@ -121,6 +127,15 @@
     <None Remove="Resources\Icons\UnprocessedWater.png" />
     <None Remove="Resources\Icons\WaterBottle.png" />
     <None Remove="Resources\Icons\Wood.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Icons\BearAttack.png" />
+    <Resource Include="Resources\Icons\CampingSiteStatus.png" />
+    <Resource Include="Resources\Icons\FishingDockStatus.png" />
+    <Resource Include="Resources\Icons\ForestStatus.png" />
+    <Resource Include="Resources\Icons\None.png" />
+    <Resource Include="Resources\Icons\NoneStatus.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -188,8 +203,9 @@
     <Resource Include="Resources\Icons\MenuButton.png" />
     <Resource Include="Resources\Icons\MenuButtonMouseOver.png" />
     <Resource Include="Resources\Icons\Metal.png" />
-    <Resource Include="Resources\Icons\None.png" />
-    <Resource Include="Resources\Icons\Rest.png" />
+    <Resource Include="Resources\Icons\OccupationBackground.png" />
+    <Resource Include="Resources\Icons\Overheating.png" />
+    <Resource Include="Resources\Icons\RestStatus.png" />
     <Resource Include="Resources\Icons\Rob.png" />
     <Resource Include="Resources\Icons\Rope.png" />
     <Resource Include="Resources\Icons\SanityIcon.png" />

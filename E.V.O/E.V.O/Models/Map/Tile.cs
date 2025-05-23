@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using E.V.O_.Models.Occupation;
+using System.Windows;
 
 namespace E.V.O_.Models.Map
 {
@@ -8,14 +9,14 @@ namespace E.V.O_.Models.Map
         public bool IsVisible { get; set; } = false;
         public bool IsExplored { get; set; } = false;
         public bool IsOccupied { get; set; } = false;
-        public abstract string Name { get; }
-        public abstract TileType Type { get; }
+        public IOccupation Occupation { get; set; }
 
         public abstract Tile Clone(Point coordinates);
 
-        protected Tile(Point coordinates)
+        protected Tile(Point coordinates, IOccupation occupation)
         {
             Coordinates = coordinates;
+            Occupation = occupation;
         }
     }
 }

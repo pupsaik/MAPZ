@@ -12,11 +12,15 @@ namespace E.V.O_.Models.Buildings
     public class BuildingManager
     {
         public Trailer Trailer { get; set; } = new();
+
         public Tent Tent1 { get; set; } = new();
+
         public Tent Tent2 { get; set; } = null;
+
         public Tent Tent3 { get; set; } = null;
 
         public SleepingBag SleepingBag1 { get; set; } = new();
+
         public SleepingBag SleepingBag2 { get; set; } = new();
 
         public void OccupyBuilding(Building building, Character character)

@@ -16,8 +16,9 @@ namespace E.V.O_.GameManaging
 
 
         public Game()
-        { 
-            MapManager = new MapManager(new NormalTilesFactory());
+        {
+            MapManager.Initialize(new NormalTilesFactory());
+            MapManager = MapManager.Instance;
 
             CharacterManager = new(); 
             TimeManager = new(CharacterManager);

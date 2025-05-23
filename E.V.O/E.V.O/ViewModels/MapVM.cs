@@ -17,17 +17,25 @@ namespace E.V.O_.ViewModels
         private MainVM _mainVM;
 
         public ObservableCollection<MapTileVM> TileVMs { get; } = [];
+        public ExpeditionSelectVM ExpeditionSelectVM { get; }
 
         public double ControlWidth { get; set; }
         public double ControlHeight { get; set; }
 
         public ICommand BackCommand { get; set; }
+        public ICommand TileClick { get; set; }
 
-        public MapVM(MainVM mainVM, MapManager mapManager)
+        public MapVM(MainVM mainVM, MapManager mapManager, InventoryManager inventoryManager, CharacterManager characterManager)
         {
             _mainVM = mainVM;
             LoadFromTiles(mapManager.Tiles, 125);
             BackCommand = new RelayCommand(() => _mainVM.CurrentVM = _mainVM.BaseVM);
+            ExpeditionSelectVM = new(characterManager, inventoryManager, this);
+
+            TileClick = new RelayCommandParametrized<MapTileVM>(tileVM => { 
+                if(tileVM.Tile.IsVisible)
+                    ExpeditionSelectVM.ChangeTile(tileVM); 
+            });
         }
 
         public void LoadFromTiles(Dictionary<Point, Tile> tiles, double sideLength)
@@ -39,16 +47,11 @@ namespace E.V.O_.ViewModels
                 Point point = kvp.Key;
                 Tile tile = kvp.Value;
 
-                string path = tile.IsVisible
-                    ? $"pack://application:,,,/E.V.O.;component/Resources/Icons/{tile.Type}{(tile.IsExplored ? ".png" : "_foggy.png")}"
-                    : "pack://application:,,,/E.V.O.;component/Resources/Icons/FoggyTile.png";
-
-                TileVMs.Add(new MapTileVM
+                TileVMs.Add(new MapTileVM(tile)
                 {
                     X = 800 + point.X * sideLength - sideLength / 2,
                     Y = 400 - point.Y * sideLength - sideLength / 2,
                     Size = sideLength,
-                    TileImage = new BitmapImage(new Uri(path))
                 });
             }
         }

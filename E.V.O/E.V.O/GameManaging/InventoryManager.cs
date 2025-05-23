@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,8 @@ namespace E.V.O_.GameManaging
         
         public event Action? ItemsChanged;
         private readonly ObservableCollection<IItem> _items = [];
+
+        public List<IItem> LootOfDay { get; set; }
 
         private InventoryManager() { }
 
@@ -33,7 +36,16 @@ namespace E.V.O_.GameManaging
             RemoveItem(consumable);
         }
 
-        public void AddItem(IItem item) => _items.Add(item);
+        public void AddItem(IItem item)
+        {
+            if (item is ITool && InventoryManager.Instance.GetItems().Any(i => i.Name == item.Name))
+            {
+                return;
+            }
+            _items.Add(item);
+            ItemsChanged?.Invoke();
+        }
+
         public void RemoveItem(IItem item)
         {
             _items.Remove(item);

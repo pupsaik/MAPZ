@@ -4,12 +4,9 @@
     {
         protected Tile _inner;
 
-        protected TileDecorator(Tile inner) : base(inner.Coordinates)
+        protected TileDecorator(Tile inner) : base(inner.Coordinates, inner.Occupation)
         {
             _inner = inner;
         }
-
-        public override string Name => _inner.Name;
-        public override TileType Type => _inner.Type;
     }
 }

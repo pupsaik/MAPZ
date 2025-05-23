@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace E.V.O_.Models.Map.Tiles.Decorators
 {
@@ -16,12 +10,11 @@ namespace E.V.O_.Models.Map.Tiles.Decorators
         {
             _modifiedEvents = new List<DangerousEvent>()
             {
-                new DangerousEvent(HazardType.Infection, 0.4f)
+                new Infection(40)
             };
         }
 
         public List<DangerousEvent> DangerousEvents => _modifiedEvents;
-        public override string Name => _inner.Name + "Infected";
 
         public override Tile Clone(Point coordinates)
         {

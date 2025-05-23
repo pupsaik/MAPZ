@@ -41,6 +41,19 @@ namespace E.V.O_.Models.Characters.States
         }
     }
 
+    public class InfectedState : IState
+    {
+        public StateType State => StateType.Poisoned;
+
+        public int DaysLeft { get; set; }
+
+        public void SkipToNextDay(Character character)
+        {
+            character.CurrentHealth -= 10;
+            DaysLeft--;
+        }
+    }
+
     public class HungryState : IState
     {
         public StateType State => StateType.Hungry;

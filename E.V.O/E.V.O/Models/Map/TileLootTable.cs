@@ -9,12 +9,12 @@ namespace E.V.O_.Models.Map
 {
     public class LootDrop
     {
-        public ILoot Item { get; }
-        public float DropChance { get; set; }
+        public IOccupationProfit Item { get; }
+        public int DropChance { get; set; }
         public int MinAmount { get; set; }
         public int MaxAmount { get; set; }
 
-        public LootDrop(ILoot item, float dropChance, int minAmount, int maxAmount)
+        public LootDrop(IOccupationProfit item, int dropChance, int minAmount, int maxAmount)
         {
             Item = item;
             DropChance = dropChance;
@@ -26,5 +26,10 @@ namespace E.V.O_.Models.Map
     public class TileLootTable
     {
         public List<LootDrop> Drops { get; set; }
+
+        public TileLootTable(List<LootDrop> drops)
+        {
+            Drops = drops;
+        }
     }
 }

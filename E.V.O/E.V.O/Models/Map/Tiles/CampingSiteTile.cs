@@ -1,26 +1,18 @@
-﻿using System.Windows;
+﻿using E.V.O_.Models.Occupation;
+using System.Windows;
 
 namespace E.V.O_.Models.Map.Tiles
 {
     public class CampingSiteTile : Tile
     {
-        public override string Name => "CampingSite";
-
-        public override TileType Type => TileType.CampingSite;
-
-        public TileLootTable TileLootTable { get; }
-
-        public List<DangerousEvent> DangerousEvents { get; }
 
         public override Tile Clone(Point coordinates)
         {
-            return new CampingSiteTile(coordinates, TileLootTable, DangerousEvents);
+            return new CampingSiteTile(coordinates, Occupation);
         }
 
-        public CampingSiteTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
+        public CampingSiteTile(Point coordinates, IOccupation occupation) : base(coordinates, occupation)
         {
-            TileLootTable = tileLootTable;
-            DangerousEvents = dangerousEvents;
         }
     }
 }

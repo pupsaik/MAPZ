@@ -13,5 +13,6 @@ namespace E.V.O_.Models.Loot
 
     public interface IOccupationProfit
     {
+
     }
 }

@@ -5,8 +5,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Image Source="pack://application:,,,/Resources/Icons/ActionButton.png" Name="Image"/>
+                    <Grid Width="{TemplateBinding Width}" 
+                      Height="{TemplateBinding Height}">
+                        <Image Source="pack://application:,,,/Resources/Icons/ActionButton.png" 
+                           Name="Image"
+                           Stretch="Fill"
+                           Width="{TemplateBinding Width}"
+                           Height="{TemplateBinding Height}"/>
                         <ContentPresenter 
                         HorizontalAlignment="Center" 
                         VerticalAlignment="Center"

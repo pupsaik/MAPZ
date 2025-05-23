@@ -1,15 +1,8 @@
 ﻿using E.V.O_.GameManaging;
 using E.V.O_.Models;
 using E.V.O_.Models.Buildings;
-using E.V.O_.Models.Characters;
 using E.V.O_.Models.Loot;
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.RightsManagement;
-using System.Text;
-using System.Threading.Tasks;
+using E.V.O_.Models.Occupation;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -22,11 +15,11 @@ namespace E.V.O_.ViewModels
         private CharacterManager _characterManager;
         private Building _building;
 
-        public BuildingActionCharacterSelectVM CharacterSelectVM { get; } = new();
-        public BuildingActionToolSelectVM ToolSelectVM { get; } = new();
+        public CharacterSelectVM CharacterSelectVM { get; } = new();
+        public ToolSelectVM ToolSelectVM { get; } = new();
 
-        public List<BuildingActionCharacterListElementVM> CharacterList { get; }
-        public List<BuildingActionToolListElementVM> ToolList { get; }
+        public List<CharacterListElementVM> CharacterList { get; }
+        public List<ToolListElementVM> ToolList { get; }
 
         private bool _isOccupied;
         public bool IsOccupied
@@ -76,8 +69,8 @@ namespace E.V.O_.ViewModels
             _building = building;
             _isOccupied = _building.OccupiedCharacter != null ? true : false;
 
-            CharacterList = _characterManager.GetCharacters().Where(ch => ch.CurrentHealth > 0 && ch.CurrentOccupation is NoOccupation).Select(x => new BuildingActionCharacterListElementVM(x)).ToList();
-            ToolList = inventoryManager.GetItems().Where(x => x is ITool tool && tool.TileType == TileType.Base && !tool.IsOccupied).Select(x => new BuildingActionToolListElementVM(x as ITool)).ToList();
+            CharacterList = _characterManager.GetCharacters().Where(ch => ch.CurrentHealth > 0 && ch.CurrentOccupation is NoOccupation).Select(x => new CharacterListElementVM(x)).ToList();
+            ToolList = inventoryManager.GetItems().Where(x => x is ITool tool && tool.TileType == OccupationType.Rest && !tool.IsOccupied).Select(x => new ToolListElementVM(x as ITool)).ToList();
 
             OpenCharacterSelectionModalCommand = new RelayCommand(() => IsCharacterSelectionModalOpen = !IsCharacterSelectionModalOpen);
             OpenToolSelectionModalCommand = new RelayCommand(() => IsToolSelectionModalOpen = !IsToolSelectionModalOpen);
@@ -110,6 +103,7 @@ namespace E.V.O_.ViewModels
             {
                 OccupationFacade occupationFacade = new();
                 occupationFacade.OccupyBuilding(_building, CharacterSelectVM.Character, ToolSelectVM.Tool);
+
                 SubmitEvent?.Invoke();
             }
             catch (Exception ex)
@@ -119,7 +113,7 @@ namespace E.V.O_.ViewModels
         }
     }
 
-    public class BuildingActionToolSelectVM : BaseViewModel
+    public class ToolSelectVM : BaseViewModel
     {
         public ITool Tool { get; set; }
 
@@ -134,7 +128,7 @@ namespace E.V.O_.ViewModels
             }
         }
 
-        public BuildingActionToolSelectVM()
+        public ToolSelectVM()
         {
             SetImage(null);
         }
@@ -150,7 +144,7 @@ namespace E.V.O_.ViewModels
         }
     }
 
-    public class BuildingActionCharacterSelectVM : BaseViewModel
+    public class CharacterSelectVM : BaseViewModel
     {
         public Character Character { get; set; }
 
@@ -165,7 +159,7 @@ namespace E.V.O_.ViewModels
             }
         }
 
-        public BuildingActionCharacterSelectVM()
+        public CharacterSelectVM()
         {
             SetImage(null);
         }
@@ -181,7 +175,7 @@ namespace E.V.O_.ViewModels
         }
     }
 
-    public class BuildingActionToolListElementVM : BaseViewModel
+    public class ToolListElementVM : BaseViewModel
     {
         private ITool _tool;
         public ImageSource Image => new BitmapImage(new Uri($"pack://application:,,,/Resources/Icons/Items/{_tool.Name.Replace(" ", "")}.png"));
@@ -190,14 +184,14 @@ namespace E.V.O_.ViewModels
 
         public ICommand ToolSelectedCommand { get; }
 
-        public BuildingActionToolListElementVM(ITool tool)
+        public ToolListElementVM(ITool tool)
         {
             _tool = tool;
             ToolSelectedCommand = new RelayCommand(() => ToolSelectedEvent?.Invoke(_tool));
         }
     }
 
-    public class BuildingActionCharacterListElementVM : BaseViewModel
+    public class CharacterListElementVM : BaseViewModel
     {
         private Character _character;
         public ImageSource Image => new BitmapImage(new Uri($"pack://application:,,,/Resources/Icons/{_character.Name}.png"));
@@ -206,7 +200,7 @@ namespace E.V.O_.ViewModels
 
         public ICommand CharacterSelectedCommand { get; }
 
-        public BuildingActionCharacterListElementVM(Character character)
+        public CharacterListElementVM(Character character)
         {
             _character = character;
             CharacterSelectedCommand = new RelayCommand(() => CharacterSelectedEvent?.Invoke(_character));

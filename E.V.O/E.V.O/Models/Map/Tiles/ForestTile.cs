@@ -1,26 +1,17 @@
-﻿using System.Windows;
+﻿using E.V.O_.Models.Occupation;
+using System.Windows;
 
 namespace E.V.O_.Models.Map.Tiles
 {
     public class ForestTile : Tile
     {
-        public override string Name => "Forest";
-
-        public override TileType Type => TileType.Forest;
-
-        public TileLootTable TileLootTable { get; }
-
-        public List<DangerousEvent> DangerousEvents { get; }
-
         public override Tile Clone(Point coordinates)
         {
-            return new ForestTile(coordinates, TileLootTable, DangerousEvents);
+            return new ForestTile(coordinates, Occupation);
         }
 
-        public ForestTile(Point coordinates, TileLootTable tileLootTable, List<DangerousEvent> dangerousEvents) : base(coordinates)
+        public ForestTile(Point coordinates, IOccupation occupation) : base(coordinates, occupation)
         {
-            TileLootTable = tileLootTable;
-            DangerousEvents = dangerousEvents;
         }
     }
 }

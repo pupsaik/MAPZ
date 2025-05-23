@@ -1,6 +1,7 @@
 ﻿using E.V.O_.Models.Characters;
 using E.V.O_.Models.Exceptions;
 using E.V.O_.Models.Loot;
+using E.V.O_.Models.Map;
 using E.V.O_.Models.Occupation;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,15 @@ namespace E.V.O_.Models.Buildings
     public class Tent : Building
     {
         public override string Name => "Tent";
+
         public override int Duration => 1;
-        public override OccupationType Type => OccupationType.Rest;
 
-        public override List<IOccupationProfit> ProfitPool => [
-            new CompositeEffect(new SanityImpact(15))
-        ];
+        public override OccupationType OccupationType => OccupationType.Rest;
 
+        public override TileLootTable TileLootTable => new TileLootTable(
+            [
+                new LootDrop(new SanityImpact(15), 100, 1, 1)
+            ]   
+        );
     }
 }

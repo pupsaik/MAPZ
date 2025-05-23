@@ -31,7 +31,6 @@ namespace E.V.O_.ViewModels
         }
 
         private BuildingActionNonOccupiedVM _buildingActionNonOccupiedVM;
-        private BuildingActionOccupiedVM _buildingActionOccupiedVM;
 
         public event Action CloseEvent;
 
@@ -84,9 +83,9 @@ namespace E.V.O_.ViewModels
 
             Duration = _building.Duration;
 
-            foreach (var buildingProfit in building.ProfitPool)
+            foreach (var buildingProfit in building.TileLootTable.Drops)
             {
-                if (buildingProfit is CompositeEffect compositeEffect)
+                if (buildingProfit.Item is CompositeEffect compositeEffect)
                 {
                     foreach (IConsumptionEffect consumptionEffect in compositeEffect.Effects)
                     {
@@ -95,7 +94,7 @@ namespace E.V.O_.ViewModels
                 }
                 else
                 {
-                    new BuildingActionRewardVM(buildingProfit);
+                    Rewards.Add(new BuildingActionRewardVM(buildingProfit.Item));
                 }
             }
 

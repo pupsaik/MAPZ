@@ -16,7 +16,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/Resources/Icons/ConsumableUsageWindow.png"/>
         </Grid.Background>
-        <TextBlock Margin="20" FontSize="20">Do you want to consume <Run Text="{Binding Name}"/>?</TextBlock>
+        <TextBlock Margin="20" FontSize="15">Do you want to consume <Run Text="{Binding Name}"/>?</TextBlock>
         <Button Style="{StaticResource CloseButton}" Command="{Binding CloseCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20"/>
 
         <Grid>
@@ -45,9 +45,9 @@
 
                                     <Image Source="pack://application:,,,/Resources/Icons/Items/Health.png" Height="10" Width="10" VerticalAlignment="Bottom"/>
                                     <TextBlock Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Margin="3,3,0,0" FontSize="10">
-                    <Run Text="{Binding SelectedCharacterCurrentHealth}"/>
-                    <Run Text="/"/>
-                    <Run Text="{Binding SelectedCharacterMaxHealth}"/>
+                                        <Run Text="{Binding SelectedCharacterCurrentHealth}"/>
+                                        <Run Text="/"/>
+                                        <Run Text="{Binding SelectedCharacterMaxHealth}"/>
                                     </TextBlock>
                                 </Grid>
                                 <Image Source="pack://application:,,,/Resources/Icons/FullHealthBar.png" Width="80" Height="10"/>

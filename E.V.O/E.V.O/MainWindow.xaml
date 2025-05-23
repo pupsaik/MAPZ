@@ -6,13 +6,15 @@
         xmlns:local="clr-namespace:E.V.O_"
         xmlns:views="clr-namespace:E.V.O_.Views"
         xmlns:inv="clr-namespace:E.V.O_.Views.Inventory"
+        xmlns:map="clr-namespace:E.V.O_.Views.Map"
         xmlns:vms="clr-namespace:E.V.O_.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        WindowStyle="None">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vms:MapVM}">
-            <views:MapView/>
+            <map:MapView/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type vms:BaseVM}">

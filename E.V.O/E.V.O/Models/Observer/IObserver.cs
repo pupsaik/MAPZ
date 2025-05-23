@@ -14,6 +14,7 @@ namespace E.V.O_.Models.Observer
     public enum CharacterEventType
     { 
         OccupationEnded,
+        OccupationSet,
         HealthChanged,
         HungerChanged,
         ThirstChanged,

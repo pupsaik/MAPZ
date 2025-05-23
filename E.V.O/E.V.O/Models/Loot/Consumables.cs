@@ -1,15 +1,4 @@
-﻿using E.V.O_.GameManaging;
-using E.V.O_.Models.Characters;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using System.Windows.Media.Effects;
-
-namespace E.V.O_.Models.Loot
+﻿namespace E.V.O_.Models.Loot
 {
     public enum ConsumableType
     {
@@ -179,7 +168,7 @@ namespace E.V.O_.Models.Loot
 
         public CompositeEffect(params ConsumptionEffect[] effects)
         {
-            Effects = effects.ToList();
+            Effects = [.. effects];
         }
     }
 

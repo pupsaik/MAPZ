@@ -14,7 +14,7 @@ namespace E.V.O_.UI.Converters
         {
             if (value is int integer)
             {
-                return $"{(integer > 0 ? "+" : "")} ${integer}";
+                return $"{(integer > 0 ? "+" : "")}{integer}";
             }
 
             return null;

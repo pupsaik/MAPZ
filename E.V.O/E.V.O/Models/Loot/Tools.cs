@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E.V.O_.Models.Occupation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace E.V.O_.Models.Loot
 
     public interface ITool : IItem
     {
-        TileType TileType { get; }
+        OccupationType TileType { get; }
         List<ToolEffectEntry> Effects { get; }
         bool IsOccupied { get; set; }
     }
@@ -24,7 +25,7 @@ namespace E.V.O_.Models.Loot
         public bool IsOccupied { get; set; }
         public string Name => "Axe";
         public string Description => "потім придумаю ;)";
-        public TileType TileType => TileType.Forest | TileType.CampingSite | TileType.FieldLab | TileType.HuntersHut;
+        public OccupationType TileType => OccupationType.Forest | OccupationType.CampingSite | OccupationType.HuntersHut;
         public List<ToolEffectEntry> Effects => [ 
             new ToolEffectEntry(ToolEffect.DamageChanceReduce, 0.1f),
             new ToolEffectEntry(ToolEffect.BonusWood, 2)
@@ -36,7 +37,7 @@ namespace E.V.O_.Models.Loot
         public bool IsOccupied { get; set; }
         public string Name => "Machete";
         public string Description => "потім придумаю ;)";
-        public TileType TileType => TileType.Forest | TileType.CampingSite | TileType.FieldLab | TileType.HuntersHut;
+        public OccupationType TileType => OccupationType.Forest | OccupationType.CampingSite | OccupationType.HuntersHut;
         public List<ToolEffectEntry> Effects => [
             new ToolEffectEntry(ToolEffect.DamageChanceReduce, 0.3f)
         ];
@@ -48,7 +49,7 @@ namespace E.V.O_.Models.Loot
         public string Name => "First Aid Manual";
                 public string Description => "потім придумаю ;)";
 
-        public TileType TileType => TileType.Base;
+        public OccupationType TileType => OccupationType.Rest;
         public List<ToolEffectEntry> Effects => [
             new ToolEffectEntry(ToolEffect.BetterHealingSkills, 2)
         ];
@@ -60,7 +61,7 @@ namespace E.V.O_.Models.Loot
         public string Name => "Book";
                 public string Description => "потім придумаю ;)";
 
-        public TileType TileType => TileType.Base;
+        public OccupationType TileType => OccupationType.Rest;
         public List<ToolEffectEntry> Effects => [
             new ToolEffectEntry(ToolEffect.BetterSleep, 2)
         ];
@@ -72,7 +73,7 @@ namespace E.V.O_.Models.Loot
         public string Name => "Flashlight";
                 public string Description => "потім придумаю ;)";
 
-        public TileType TileType => TileType.CampingSite;
+        public OccupationType TileType => OccupationType.CampingSite;
         public List<ToolEffectEntry> Effects => [
             new ToolEffectEntry(ToolEffect.BonusFood, 2)
         ];
@@ -84,7 +85,7 @@ namespace E.V.O_.Models.Loot
         public string Name => "Fishing Rod";
                 public string Description => "потім придумаю ;)";
 
-        public TileType TileType => TileType.FishingDock;
+        public OccupationType TileType => OccupationType.FishingDock;
         public List<ToolEffectEntry> Effects => [
             new ToolEffectEntry(ToolEffect.BonusFish, 2)
         ];
@@ -96,7 +97,7 @@ namespace E.V.O_.Models.Loot
         public string Name => "Suncreen";
                 public string Description => "потім придумаю ;)";
 
-        public TileType TileType => TileType.FishingDock;
+        public OccupationType TileType => OccupationType.FishingDock;
         public List<ToolEffectEntry> Effects => [
             new ToolEffectEntry(ToolEffect.BonusFish, 0.5f)
         ];

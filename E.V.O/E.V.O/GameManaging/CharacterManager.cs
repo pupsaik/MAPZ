@@ -25,7 +25,7 @@ namespace E.V.O_.GameManaging
             ];
         }
 
-        public void OccupyCharcter(Character character, Building building)
+        public void OccupyCharacter(Character character, IOccupation building)
         {
             character.CurrentOccupation = building;
         }

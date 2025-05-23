@@ -14,7 +14,7 @@ namespace E.V.O_.Models.Loot
         Rope
     }
 
-    public class Resource : ILoot
+    public class Resource : ILoot, IOccupationProfit
     {
         public string Name { get; }
         public ResourceType Type { get; }

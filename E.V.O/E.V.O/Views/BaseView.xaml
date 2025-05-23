@@ -93,6 +93,14 @@
             </ItemsControl.ItemTemplate>
 
         </ItemsControl>
+
+        <local:EndDayView 
+            Width="700"
+            Visibility="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.IsEndOfDayVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+            DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.EndOfDayVM}"/>
+
+        <local:DayResults Visibility="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.IsDayResultsVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+            DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.DayResultsVM}"/>
         <local:CharacterPanel Grid.Row="1" DataContext="{Binding CharacterPanelVM}"/>
     </Grid>
 </UserControl>
